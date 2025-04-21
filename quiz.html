@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fraud Awareness Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Fraud Awareness Quiz</h1>
+  <form id="quizForm">
+    <label>1. What is phishing?<br>
+      <input type="radio" name="q1" value="a"> A fishing technique<br>
+      <input type="radio" name="q1" value="b"> Fraudulent email to steal info<br>
+    </label><br>
+
+    <label>2. Best way to detect fraud?<br>
+      <input type="radio" name="q2" value="a"> AI-based anomaly detection<br>
+      <input type="radio" name="q2" value="b"> Clicking on links<br>
+    </label><br>
+
+    <label>3. Which is NOT a safe practice?<br>
+      <input type="radio" name="q3" value="a"> Checking URLs before clicking<br>
+      <input type="radio" name="q3" value="b"> Sharing passwords via email<br>
+    </label><br>
+
+    <label>4. What does 2FA stand for?<br>
+      <input type="radio" name="q4" value="a"> Two-Factor Authentication<br>
+      <input type="radio" name="q4" value="b"> Two-Faced Account<br>
+    </label><br>
+
+    <label>5. What is the role of AI in fraud prevention?<br>
+      <input type="radio" name="q5" value="a"> Entertainment<br>
+      <input type="radio" name="q5" value="b"> Detecting unusual activity<br>
+    </label><br>
+
+    <button type="button" onclick="checkAnswers()">Submit</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    function checkAnswers() {
+      let score = 0;
+      const answers = {
+        q1: "b",
+        q2: "a",
+        q3: "b",
+        q4: "a",
+        q5: "b"
+      };
+
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) score++;
+      }
+
+      document.getElementById("result").textContent = "Your Score: " + score + "/5";
+    }
+  </script>
+</body>
+</html>
